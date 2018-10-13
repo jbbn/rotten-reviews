@@ -26,3 +26,9 @@ Then('I see a JSON with a valid result', function () {
   const want = Object.keys(reviewSample)
   expect(got).toEqual(want)
 })
+
+Then('I see a JSON with the error message {string}', function (error_message) {
+  const got = this.result.hasOwnProperty('error_message') ? this.result.error_message : ''
+  const want = error_message
+  expect(got).toEqual(want)
+})
