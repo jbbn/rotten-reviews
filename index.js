@@ -111,15 +111,15 @@ const getAudienceReviews = async (slug, reviewCount, isTV = false) => {
     .then(pageRequests => Axios.all(pageRequests))
     .catch(error => {
       if (error.response.status == 404)
-        return Promise.reject({
+        throw {
           status: 404,
           message:
             `⚠️  Page not found for '${slug}'. You can check the page manually by opening this link:\n` +
             movieUrl(slug, page, isTV),
-        })
-      return Promise.reject({
+        }
+      throw {
         message: `⚠️  An error occured, please try again.`,
-      })
+      }
     })
     .then(
       Axios.spread((...requests) => {

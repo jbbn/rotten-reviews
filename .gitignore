@@ -1,4 +1,5 @@
-coverage/
+build
+coverage
 node_modules
 yarn.lock
 .DS_Store

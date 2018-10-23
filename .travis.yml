@@ -3,4 +3,8 @@ node_js:
   - 'node'
   - '8'
 cache:
-  yarn: true
+  - yarn: true
+install: 
+  - npm install
+script:
+  - npm run test:codecov
